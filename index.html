@@ -19,10 +19,10 @@
     <h1>Star Wars Wars!</h1>
     <div id="players">
         <div id="heroes">
-            <img src="" alt="" id="hero0">
-            <img src="" alt="" id="hero1">
-            <img src="" alt="" id="hero2">
-            <img src="" alt="" id="hero3"><br>
+            <img src="" alt="" id="hero0"><label></label>
+            <img src="" alt="" id="hero1"><label></label>
+            <img src="" alt="" id="hero2"><label></label>
+            <img src="" alt="" id="hero3"><label></label><br>
             Choose a Hero!
         </div>
         <div id="enemies">
@@ -40,6 +40,9 @@
     </div>
     <script>
         $( document ).ready(loadImgs());
+        $( 'img' ).click(function() {
+    alert( this.id + " was clicked" );
+  });
     </script>
 </body>
 
