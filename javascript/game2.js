@@ -38,24 +38,45 @@ function heroImgs() {
 }
 
 function foeImgs() {
-    for (let idx = 0; idx < 5; idx++) {
-        var image = new Array();
-        image[0] = boba.image;
-        image[1] = phasma.image;
-        image[2] = maul.image;
-        image[3] = vader.image;
-        image[4] = hux.image;
-        image[5] = greedo.image;
-        image[6] = jabba.image;
-        image[7] = kylo.image;
+
+    var image = new Array();
+    image[0] = boba.image;
+    image[1] = phasma.image;
+    image[2] = maul.image;
+    image[3] = vader.image;
+    image[4] = hux.image;
+    image[5] = greedo.image;
+    image[6] = jabba.image;
+    image[7] = kylo.image;
+
+    shuffle(image);
+
+    function shuffle(array) { //from https://bost.ocks.org/mike/shuffle/
+        var m = array.length,
+            t, i;
+
+        // While there remain elements to shuffle…
+        while (m) {
+
+            // Pick a remaining element…
+            i = Math.floor(Math.random() * m--);
+
+            // And swap it with the current element.
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }
+
+        console.log(array);
+        for (let idx = 0; idx < 5; idx++) {
             
-            var size = image.length
-            var x = Math.floor(size * Math.random())
+            // var size = image.length
+            // var x = Math.floor(size * Math.random())
             
             $('#enemy' + idx).attr('src', image[x]);
         }
     }
-
+}
 
 
 
