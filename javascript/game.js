@@ -2,6 +2,7 @@ function loadImgs() {
     bg();
     heroImgs();
     foeImgs();
+    heroChoice();
 };
 
 function bg() {
@@ -11,50 +12,36 @@ function bg() {
     image[1] = "./images/wallpaper2.jpg";
     image[2] = "./images/wallpaper3.jpg";
 
-    var size = image.length
+    var size = image.length;
     var x = Math.floor(size * Math.random())
 
     $('#backgroundImg').attr('background', image[x]);
 };
 
+
 function heroImgs() {
     
-    var image = new Array();
-    image[0] = droids;
-    image[1] = finn;
-    image[2] = han;
-    image[3] = lando;
-    image[4] = maz;
-    image[5] = poe;
-    image[6] = leia;
-    image[7] = rey;
+    var image = heroes;
     
     shuffle(image);
 
     for (let idx = 0; idx < 5; idx++) {
-
+        // Add Hero pictures to screen
         $('#hero' + idx).attr('src', image[idx].image);
-        // Show Hero and Enemy names in Label
+        $('#hero' + idx).attr('alt_ID', image[idx].name);
+
+        // Show Hero names in Label
         $('#hero' + idx).after('<label>'+ image[idx].name + '</label>')
     }
 }
 
 function foeImgs() {
 
-    var image = new Array();
-    image[0] = boba;
-    image[1] = phasma;
-    image[2] = maul;
-    image[3] = vader;
-    image[4] = hux;
-    image[5] = greedo;
-    image[6] = jabba;
-    image[7] = kylo;
-    
+    var image = foes;  
     shuffle(image);
 
     for (let idx = 0; idx < 5; idx++){
-
+        // Add enemy pictures and names 
         $('#enemy' + idx).attr('src', image[idx].image);
         $('#enemy' + idx).after('<label>'+ image[idx].name + '</label>')
     }
@@ -77,6 +64,8 @@ function shuffle(array) { //from https://bost.ocks.org/mike/shuffle/
         array[i] = t;
     }
 }
+
+// Hero and Enemy character arrays
 var heroes = [
      droids = {
         name: "The Droids",
@@ -197,14 +186,24 @@ var foes = [
 
 
 // User selects Hero player
-
 // Hero goes to battlefield, other heroes hide
-// $( "#hero0" ).click(function() {
-//     alert( "Handler for .click() called." );
-//   });
+
+function heroChoice() {
+        // $(pick).click(function () {
+        //         alert("Handler for " + pick +" called.");
+        //     });
+        // };
+
+        $("img.image-selector").click(function () {
+           var imgSrc = ($(this).attr("src"));
+
+            $('#heroes').hide();
+          //  $('#fighter').attr('src', img.image);
+            $('#fighter').attr('src', imgSrc);
+        });
+    };
 
 // User selects foe,
-
 // Foe goes to battlefield and orig copy of that foe hides
 
 // On attack, hero attack is calculated and subtracted from foe HP

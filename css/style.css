@@ -15,9 +15,13 @@
  #players {
      display: flex;
      flex-direction: row;
+     flex-flow: row;
      justify-content: space-around;
- }
 
+ }
+.playerCard {
+    display: inline;
+}
  #players img {
      height: 150px;
      width: 150px;
@@ -42,18 +46,18 @@
  }
 
  label {
+    display: none; 
+     /* position: relative;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
      font-weight: 400;
      color: #fff;
      background-color: rgba(53, 48, 48, 0.7);
      font-size: 1rem;
      width: 150px;
-     position: relative;
-     left: -150px;
+     right: 150px;
      bottom: 10px;
      text-align: center;
-     margin: auto;
-
+     margin: auto; */
  }
 
  #battlefield {

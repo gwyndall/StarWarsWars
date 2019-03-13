@@ -9,20 +9,20 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
     <script src="./javascript/game.js"></script>
 </head>
 
-<body id="backgroundImg" alt="#" >
+<body id="backgroundImg" alt="#">
 
     <h1>Star Wars Wars!</h1>
     <div id="players">
         <div id="heroes">
-            <img src="" alt="" id="hero0"><label></label>
-            <img src="" alt="" id="hero1"><label></label>
-            <img src="" alt="" id="hero2"><label></label>
-            <img src="" alt="" id="hero3"><label></label><br>
+            <div class="playerCard"><img src="" alt="" id="hero0" class="image-selector"><label></label></div>
+            <div class="playerCard"><img src="" alt="" id="hero1" class="image-selector"><label></label></div>
+            <div class="playerCard"><img src="" alt="" id="hero2" class="image-selector"><label></label></div>
+            <div class="playerCard"><img src="" alt="" id="hero3" class="image-selector"><label></label></div><br>
             Choose a Hero!
         </div>
         <div id="enemies">
@@ -39,10 +39,7 @@
         <img src="" alt="" id="foe">
     </div>
     <script>
-        $( document ).ready(loadImgs());
-        $( 'img' ).click(function() {
-    alert( this.id + " was clicked" );
-  });
+        $(document).ready(loadImgs());
     </script>
 </body>
 
