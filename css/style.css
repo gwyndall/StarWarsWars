@@ -16,11 +16,21 @@
      display: flex;
      flex-direction: row;
      flex-flow: row;
-     justify-content: space-around;
-
+     justify-content: space-evenly;
  }
 .playerCard {
-    display: inline;
+    display: inline-block;
+    width: 158px;
+}
+
+#heroes,
+#enemies {
+    background-color: rgba(204, 204, 204, 0.7);
+    margin: 20px;
+    font-size: 2rem;
+    padding: 10px;
+    text-align: center;
+    width: 685px;
 }
  #players img {
      height: 150px;
@@ -28,62 +38,61 @@
      cursor: pointer;
  }
 
- #heroes img {
+ #heroes img, #fighter {
      border: 4px solid rgb(19, 202, 19);
  }
 
- #enemies img {
+ #enemies img, #foe {
      border: 4px solid red;
  }
 
- #heroes,
- #enemies {
-     background-color: rgba(204, 204, 204, 0.7);
-     margin: 20px;
-     font-size: 2rem;
-     padding: 10px;
-     text-align: center;
+ figcaption {
+    /* display: none;  */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
  }
 
- label {
-    display: none; 
-     /* position: relative;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     font-weight: 400;
-     color: #fff;
-     background-color: rgba(53, 48, 48, 0.7);
-     font-size: 1rem;
-     width: 150px;
-     right: 150px;
-     bottom: 10px;
-     text-align: center;
-     margin: auto; */
- }
-
+ /* Combat zone  */
  #battlefield {
      background-color: rgba(204, 204, 204, 0.7);
-     margin: 200px auto;
+     margin: 20px auto;
+     padding: 20px;
      text-align: center;
-     width: 500px;
+     width: 670px;
+     min-height: 170px;
  }
 
  #battlefield img {
      height: 150px;
      width: 150px;
  }
-
- #fighter {
-     border: 4px solid rgb(19, 202, 19);
- }
-
- #foe {
-     border: 4px solid red;
- }
-
+.heroFig {
+    float: left;
+}
+.foeFig {
+    float: right;
+}
  #battlefield button {
      padding: 20px;
      border 1px solid black;
      border-radius: 10px;
      font-size: 1.5rem;
      cursor: pointer;
+     position: relative;
+     margin: 30px;
+     bottom: 0px;
  }
+ #fighter, #foe {
+     visibility: hidden;  
+ }
+
+ #combatText {
+     line-height: 1.5rem;
+ }
+ /* .health {
+    display: inline-block;
+    clear: both;     
+    bottom: -20px;
+    text-align: center;
+} */

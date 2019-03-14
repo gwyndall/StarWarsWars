@@ -19,24 +19,27 @@
     <h1>Star Wars Wars!</h1>
     <div id="players">
         <div id="heroes">
-            <div class="playerCard"><img src="" alt="" id="hero0" class="image-selector"><label></label></div>
-            <div class="playerCard"><img src="" alt="" id="hero1" class="image-selector"><label></label></div>
-            <div class="playerCard"><img src="" alt="" id="hero2" class="image-selector"><label></label></div>
-            <div class="playerCard"><img src="" alt="" id="hero3" class="image-selector"><label></label></div><br>
+            <figure class="playerCard"><img src="" alt="" id="hero0" class="hero image-selector"></figure>
+            <figure class="playerCard"><img src="" alt="" id="hero1" class="hero image-selector"></figure>
+            <figure class="playerCard"><img src="" alt="" id="hero2" class="hero image-selector"></figure>
+            <figure class="playerCard"><img src="" alt="" id="hero3" class="hero image-selector"></figure><br>
             Choose a Hero!
         </div>
         <div id="enemies">
-            <img src="" alt="" id="enemy0">
-            <img src="" alt="" id="enemy1">
-            <img src="" alt="" id="enemy2">
-            <img src="" alt="" id="enemy3"><br>
+            <figure class="playerCard"><img src="" alt="" id="enemy0" class="foe image-selector"></figure>
+            <figure class="playerCard"><img src="" alt="" id="enemy1" class="foe image-selector"></figure>
+            <figure class="playerCard"><img src="" alt="" id="enemy2" class="foe image-selector"></figure>
+            <figure class="playerCard"> <img src="" alt="" id="enemy3" class="foe image-selector"></figure><br>
             Choose your Opponent!
         </div>
     </div>
     <div id="battlefield">
-        <img src="" alt="" id="fighter">
+        <figure class="heroFig">
+            <img src="" alt="" id="fighter"></figure>
         <button id="Attack">Attack!</button>
-        <img src="" alt="" id="foe">
+        <figure class="foeFig"><img src="" alt="" id="foe"></figure>
+        <div id="combatText"></div><br>
+        <div id='combatStatus'></div>
     </div>
     <script>
         $(document).ready(loadImgs());
