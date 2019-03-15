@@ -37,7 +37,9 @@
      width: 150px;
      cursor: pointer;
  }
-
+#enemies {
+    visibility: hidden;
+}
  #heroes img, #fighter {
      border: 4px solid rgb(19, 202, 19);
  }

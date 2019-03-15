@@ -5,6 +5,7 @@ function loadImgs() {
     heroChoice();
     foeChoice();
     attack();
+    $('#Attack').off();
 };
 
 var heroName
@@ -26,6 +27,8 @@ function bg() {
     var x = Math.floor(size * Math.random())
 
     $('#backgroundImg').attr('background', image[x]);
+    // Disable Attack button until Foe selected
+
 };
 
 
@@ -87,21 +90,21 @@ var heroes = [
         key: 'droids',
         name: "The Droids",
         image: "./images/heroes/droids.jpg",
-        health: 100,
+        health: 500,
         attack: 1,
     },
     finn = {
         key: 'finn',
         name: "Finn",
         image: "./images/heroes/finn.jpg",
-        health: 100,
+        health: 500,
         attack: 1,
     },
     han = {
         key: 'han',
         name: "Han Solo",
         image: "./images/heroes/HanSolo.jpg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -109,7 +112,7 @@ var heroes = [
         key: 'lando',
         name: "Lando Calrissian",
         image: "./images/heroes/Lando-Calrissian.jpg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -117,7 +120,7 @@ var heroes = [
         key: 'maz',
         name: "Maz Kanata",
         image: "./images/heroes/MazKanata.jpg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -125,7 +128,7 @@ var heroes = [
         key: 'poe',
         name: "Poe Dameron",
         image: "./images/heroes/poe-dameron.jpeg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -133,7 +136,7 @@ var heroes = [
         key: 'leia',
         name: "Leia Organa",
         image: "./images/heroes/princess-leia.jpeg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -141,7 +144,7 @@ var heroes = [
         key: 'rey',
         name: "Rey",
         image: "./images/heroes/rey.jpg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     }
@@ -152,7 +155,7 @@ var foes = [
         key: 'boba',
         name: "Boba Fett",
         image: "./images/enemies/bobafett.jpeg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -160,7 +163,7 @@ var foes = [
         key: 'phasma',
         name: "Captain Phasma",
         image: "./images/enemies/CaptainPhasma.jpg",
-        health: 100,
+        health: 500,
         attack: 2,
 
     },
@@ -168,7 +171,7 @@ var foes = [
         key: 'maul',
         name: "Darth Maul",
         image: "./images/enemies/DarthMaul.jpeg",
-        health: 100,
+        health: 500,
         attack: 3,
 
     },
@@ -176,7 +179,7 @@ var foes = [
         key: 'vader',
         name: "Darth Vader",
         image: "./images/enemies/darthvader.jpeg",
-        health: 100,
+        health: 500,
         attack: 4,
 
     },
@@ -184,7 +187,7 @@ var foes = [
         key: 'hux',
         name: "General Hux",
         image: "./images/enemies/generalHux.jpeg",
-        health: 100,
+        health: 500,
         attack: 3,
 
     },
@@ -192,7 +195,7 @@ var foes = [
         key: 'greedo',
         name: "Greedo",
         image: "./images/enemies/greedo.jpeg",
-        health: 100,
+        health: 500,
         attack: 2,
 
     },
@@ -200,7 +203,7 @@ var foes = [
         key: 'jabba',
         name: "Jabba the Hutt",
         image: "./images/enemies/jabbahutt.jpeg",
-        health: 100,
+        health: 500,
         attack: 1,
 
     },
@@ -208,7 +211,7 @@ var foes = [
         key: 'kylo',
         name: "Kylo Ren",
         image: "./images/enemies/kylo-ren.jpeg",
-        health: 100,
+        health: 500,
         attack: 3,
 
     }
@@ -227,10 +230,11 @@ function heroChoice() {
         heroAPbase = parseInt($(this).attr("data-power"));
         heroName = ($(this).attr("alt_ID"));
 
-        $('#heroes').hide();
+        $('#heroes').css('visibility', 'hidden');
         $('#fighter').attr('src', imgSrc);
         $('#fighter').css('visibility', 'visible');
         $('#fighter').after('<figcaption class="health">Health: ' + heroHealth + '</figcaption>');
+        $('#enemies').css('visibility', 'visible');
     });
 };
 
@@ -249,7 +253,8 @@ function foeChoice() {
         $('#foe').css('visibility', 'visible');
         $('.foeFig > figcaption').remove();
         $('#foe').after('<figcaption class="health"> Health: ' + foeHealth + '</figcaption>');
-
+        $('.foe').off();  
+        $('#Attack').click(attack());     
     });
 };
 // On attack, hero attack is calculated and subtracted from foe HP
@@ -273,12 +278,12 @@ function attack() {
             $('#Attack').replaceWith('<button id="reset" onclick="reset()">Reset</button>');
         } else if (heroHealth > 0 && foeHealth > 0) {
             $('#combatStatus').html('Attack again!');
-            heroAP += heroAPbase;
-            console.log(heroAP);
+            heroAP += heroAPbase;            
         } else {
             $('#combatStatus').html('Congratulations! You killed ' + foeName + '. Select another foe!');
             heroAP += heroAPbase;
-            console.log(heroAP);
+            $('img.foe').click(foeChoice());
+            $('#Attack').off();
         }
     });
 };
@@ -289,7 +294,9 @@ function reset() {
     location.reload();
 }
 
-// Need code to block user from just clicking through opponents without fighting them
+// Need code to block user from just clicking through opponents without fighting them [disable clicking]
 
 // Once all 4 foes are vanquished, declare VICTORY! Play again button resets game.
-// Need code to reset with button
+
+//Questions:
+    //Do functions all have to be called at top?  Why?  Why doesn't the Reset function have to be called?
