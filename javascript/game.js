@@ -1,4 +1,4 @@
-function loadImgs() {
+$( document ).ready(function loadImgs() {
     bg();
     heroImgs();
     foeImgs();
@@ -6,7 +6,7 @@ function loadImgs() {
     foeChoice();
     attack();
     $('#Attack').off();
-};
+});
 
 var heroName
 var foeName
@@ -90,8 +90,8 @@ var heroes = [
         key: 'droids',
         name: "The Droids",
         image: "./images/heroes/droids.jpg",
-        health: 500,
-        attack: 1,
+        health: 800,
+        attack: 3,
     },
     finn = {
         key: 'finn',
@@ -104,24 +104,24 @@ var heroes = [
         key: 'han',
         name: "Han Solo",
         image: "./images/heroes/HanSolo.jpg",
-        health: 500,
-        attack: 1,
+        health: 600,
+        attack: 2,
 
     },
     lando = {
         key: 'lando',
         name: "Lando Calrissian",
         image: "./images/heroes/Lando-Calrissian.jpg",
-        health: 500,
-        attack: 1,
+        health: 550,
+        attack: 1.5,
 
     },
     maz = {
         key: 'maz',
         name: "Maz Kanata",
         image: "./images/heroes/MazKanata.jpg",
-        health: 500,
-        attack: 1,
+        health: 400,
+        attack: 4,
 
     },
     poe = {
@@ -129,15 +129,15 @@ var heroes = [
         name: "Poe Dameron",
         image: "./images/heroes/poe-dameron.jpeg",
         health: 500,
-        attack: 1,
+        attack: 1.25,
 
     },
     leia = {
         key: 'leia',
         name: "Leia Organa",
         image: "./images/heroes/princess-leia.jpeg",
-        health: 500,
-        attack: 1,
+        health: 450,
+        attack: 3,
 
     },
     rey = {
@@ -145,7 +145,7 @@ var heroes = [
         name: "Rey",
         image: "./images/heroes/rey.jpg",
         health: 500,
-        attack: 1,
+        attack: 2,
 
     }
 ];
@@ -155,7 +155,7 @@ var foes = [
         key: 'boba',
         name: "Boba Fett",
         image: "./images/enemies/bobafett.jpeg",
-        health: 500,
+        health: 600,
         attack: 1,
 
     },
@@ -163,7 +163,7 @@ var foes = [
         key: 'phasma',
         name: "Captain Phasma",
         image: "./images/enemies/CaptainPhasma.jpg",
-        health: 500,
+        health: 550,
         attack: 2,
 
     },
@@ -171,7 +171,7 @@ var foes = [
         key: 'maul',
         name: "Darth Maul",
         image: "./images/enemies/DarthMaul.jpeg",
-        health: 500,
+        health: 400,
         attack: 3,
 
     },
@@ -179,15 +179,15 @@ var foes = [
         key: 'vader',
         name: "Darth Vader",
         image: "./images/enemies/darthvader.jpeg",
-        health: 500,
-        attack: 4,
+        health: 600,
+        attack: 2,
 
     },
     hux = {
         key: 'hux',
         name: "General Hux",
         image: "./images/enemies/generalHux.jpeg",
-        health: 500,
+        health: 300,
         attack: 3,
 
     },
@@ -195,7 +195,7 @@ var foes = [
         key: 'greedo',
         name: "Greedo",
         image: "./images/enemies/greedo.jpeg",
-        health: 500,
+        health: 300,
         attack: 2,
 
     },
@@ -203,15 +203,15 @@ var foes = [
         key: 'jabba',
         name: "Jabba the Hutt",
         image: "./images/enemies/jabbahutt.jpeg",
-        health: 500,
-        attack: 1,
+        health: 650,
+        attack: .5,
 
     },
     kylo = {
         key: 'kylo',
         name: "Kylo Ren",
         image: "./images/enemies/kylo-ren.jpeg",
-        health: 500,
+        health: 400,
         attack: 3,
 
     }
@@ -224,7 +224,6 @@ var foes = [
 function heroChoice() {
     $("img.hero").click(function () {
         var imgSrc = ($(this).attr("src"));
-        var imgKey = ($(this).attr("data-key"));
         heroHealth = ($(this).attr("data-health"));
         heroAP = parseInt($(this).attr("data-power"));
         heroAPbase = parseInt($(this).attr("data-power"));
@@ -294,9 +293,7 @@ function reset() {
     location.reload();
 }
 
-// Need code to block user from just clicking through opponents without fighting them [disable clicking]
 
 // Once all 4 foes are vanquished, declare VICTORY! Play again button resets game.
 
-//Questions:
-    //Do functions all have to be called at top?  Why?  Why doesn't the Reset function have to be called?
+
