@@ -1,6 +1,8 @@
 # Star Wars Wars
 A simple RNG combat game using Javascript and JQuery
 
+https://gwyndall.github.io/StarWarsWars/
+
 Here's how the app works:
 
    * When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
